@@ -11,7 +11,7 @@ class Form extends React.Component {
     // const { hasTrunfo } = this.props;
     return (
       <div>
-        <form className="form">
+        <form>
           <label htmlFor="name">
             Nome
             <input
@@ -85,9 +85,9 @@ class Form extends React.Component {
               value={ cardRare }
               onChange={ onInputChange }
             >
-              <option value="Normal">Normal</option>
-              <option value="Raro">Raro</option>
-              <option value="Muito Raro">Muito Raro</option>
+              <option value="normal">normal</option>
+              <option value="raro">raro</option>
+              <option value="muito raro">muito raro</option>
             </select>
           </label>
 
