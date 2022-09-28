@@ -13,10 +13,10 @@ class Form extends React.Component {
       <div>
         <form>
           <label htmlFor="name">
-            Nome
             <input
               name="name"
               data-testid="name-input"
+              placeholder="Nome"
               value={ cardName }
               type="text"
               onChange={ onInputChange }
@@ -24,8 +24,8 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="descricao">
-            Descrição
             <textarea
+              placeholder="Descrição"
               data-testid="description-input"
               name="descricao"
               value={ cardDescription }
@@ -34,8 +34,8 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo1">
-            Attr01
             <input
+              placeholder="Atributo 1"
               data-testid="attr1-input"
               name="atributo1"
               type="number"
@@ -45,8 +45,8 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo2">
-            Attr02
             <input
+              placeholder="Atributo 2"
               data-testid="attr2-input"
               name="atributo2"
               type="number"
@@ -56,9 +56,9 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo3">
-            Attr03
             <input
               data-testid="attr3-input"
+              placeholder="Atributo 3"
               name="atributo3"
               type="number"
               value={ cardAttr3 }
@@ -91,9 +91,10 @@ class Form extends React.Component {
             </select>
           </label>
 
-          <label htmlFor="superTryunfo">
+          <label htmlFor="superTryunfo" id="tryunfo-section">
             Super Trybe Tryunfo
             <input
+              id="superTryunfo"
               data-testid="trunfo-input"
               name="superTryunfo"
               type="checkbox"
