@@ -78,11 +78,11 @@ form {
   box-shadow: var(--shadow-2);
   padding: 2rem 2.5rem;
   height: 600px;
-  /* border: 2px solid red; */
-  width: 100%;
+  border: 1px solid blue;
+  /* width: 100%; */
 }
 
-/* .Card {
+#card-main {
   display: flex;
   flex-direction: column;
   background: white;
@@ -90,12 +90,12 @@ form {
   box-shadow: var(--shadow-2);
   padding: 2rem 2.5rem;
   height: 600px;
-  width: 100%;
-} */
+  width: 30%;
+  border: 1px solid black;
+}
 
 #tryunfo-section {
   display: flex;
-  /* border: 2px solid red; */
   text-align: center;
 }
 
@@ -115,6 +115,7 @@ select {
 }
 
 main {
+  border: 4px solid red;
   display: flex;
-  justify-content: center, space-around;
+  justify-content: space-evenly;
 }
