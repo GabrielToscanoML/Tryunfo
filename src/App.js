@@ -3,22 +3,19 @@ import Card from './components/Card';
 import Form from './components/Form';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      cardName: '',
-      cardDescription: '',
-      cardAttr1: '0',
-      cardAttr2: '0',
-      cardAttr3: '0',
-      cardImage: '',
-      cardRare: 'normal',
-      cardTrunfo: false,
-      hasTrunfo: false,
-      isSaveButtonDisabled: true,
-      savedCards: [],
-    };
-  }
+  state = {
+    cardName: '',
+    cardDescription: '',
+    cardAttr1: '0',
+    cardAttr2: '0',
+    cardAttr3: '0',
+    cardImage: '',
+    cardRare: 'normal',
+    cardTrunfo: false,
+    hasTrunfo: false,
+    isSaveButtonDisabled: true,
+    savedCards: [],
+  };
 
   handleOnInputChange = (event) => {
     const { name, checked, type } = event.target;
@@ -43,12 +40,19 @@ class App extends React.Component {
     });
   };
 
+  checkTrunfo = () => {
+    const { savedCards } = this.state;
+    const existsTrunfo = (element) => element.cardTrunfo === true;
+    if (savedCards.some(existsTrunfo)) {
+      this.setState({ hasTrunfo: true });
+    }
+  };
+
   onSaveButtonClick = (e) => {
     e.preventDefault();
     const { cardName, cardDescription,
       cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo,
-      hasTrunfo } = this.state;
+      cardImage, cardRare, cardTrunfo } = this.state;
     const newCard = { cardName,
       cardDescription,
       cardAttr1,
@@ -56,11 +60,10 @@ class App extends React.Component {
       cardAttr3,
       cardImage,
       cardRare,
-      cardTrunfo,
-      hasTrunfo };
+      cardTrunfo };
     this.setState((prevState) => ({
       savedCards: [...prevState.savedCards, newCard],
-    }));
+    }), this.checkTrunfo);
     this.clearCard();
   };
 
@@ -92,9 +95,6 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <div className="json">
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        </div>
         <main>
           <Form
             cardName={ cardName }
@@ -121,6 +121,9 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </main>
+        <div className="json">
+          <pre>{JSON.stringify(this.state, null, 2)}</pre>
+        </div>
       </div>
     );
   }
