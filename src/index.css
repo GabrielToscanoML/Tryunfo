@@ -124,11 +124,18 @@ main {
   color: red;
 }
 
+#deleteItemButton {
+  background-color: red;
+  color: white;
+}
+
 #savedCardsSection {
   display: flex;
   justify-content: space-evenly;
 }
 
 #showCard{ 
+  justify-content: center;
+  text-align: center;
   border: 2px solid green;
 }

@@ -67,6 +67,17 @@ class App extends React.Component {
     this.clearCard();
   };
 
+  removeCard = ({ target }) => {
+    const { cardName } = target;
+    const { savedCards } = this.state;
+    const index = savedCards.indexOf(cardName);
+    const min = -1;
+    if (index >= min) {
+      savedCards.splice(index, 1);
+      this.setState({ savedCards }, this.checkTrunfo);
+    }
+  };
+
   isValid() {
     const { cardName, cardDescription, cardImage,
       cardAttr1, cardAttr2, cardAttr3 } = this.state;
@@ -133,6 +144,15 @@ class App extends React.Component {
                 <p>{ element.cardAttr2 }</p>
                 <p>{ element.cardAttr3 }</p>
                 <p>{ element.cardRare }</p>
+                <button
+                  data-testid="delete-button"
+                  type="button"
+                  id="deleteItemButton"
+                  onClick={ this.removeCard }
+                  // onChange={ onInputChange }
+                >
+                  Excluir
+                </button>
               </div>
             ))
           }
