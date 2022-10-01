@@ -123,3 +123,12 @@ main {
 #hasTrunfop {
   color: red;
 }
+
+#savedCardsSection {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#showCard{ 
+  border: 2px solid green;
+}

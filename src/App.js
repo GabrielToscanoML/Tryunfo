@@ -92,6 +92,7 @@ class App extends React.Component {
       cardAttr1, cardAttr2, cardAttr3,
       cardImage, cardRare, cardTrunfo,
       hasTrunfo, isSaveButtonDisabled } = this.state;
+    const { savedCards } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -121,9 +122,24 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </main>
-        <div className="json">
+        <section id="savedCardsSection">
+          {
+            savedCards.map((element) => (
+              <div key={ savedCards } id="showCard">
+                <p>{ element.cardName }</p>
+                <img src={ element.cardImage } alt={ element.cardName } />
+                <p>{ element.cardDescription }</p>
+                <p>{ element.cardAttr1 }</p>
+                <p>{ element.cardAttr2 }</p>
+                <p>{ element.cardAttr3 }</p>
+                <p>{ element.cardRare }</p>
+              </div>
+            ))
+          }
+        </section>
+        {/* <div className="json">
           <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        </div>
+        </div> */}
       </div>
     );
   }
