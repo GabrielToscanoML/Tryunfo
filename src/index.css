@@ -38,7 +38,8 @@ body {
   font-family: 'Nunito', sans-serif;
   font-weight: 400;
   line-height: 1.75;
-  color: #000000;
+  color: white;
+  background-color: #343541;
 }
 
 h1 {
@@ -69,31 +70,6 @@ button:disabled {
   cursor: wait;
 }
 
-/* form */
-form {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 0.25rem;
-  box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
-  height: 600px;
-  border: 1px solid blue;
-  /* width: 100%; */
-}
-
-#card-preview {
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 0.25rem;
-  box-shadow: var(--shadow-2);
-  padding: 2rem 2.5rem;
-  height: 600px;
-  width: 30%;
-  border: 1px solid black;
-}
-
 #tryunfo-section {
   display: flex;
   text-align: center;
@@ -108,10 +84,10 @@ textarea,
 select {
   width: 100%;
   margin-bottom: 1rem;
-  padding: 0.7rem 0.75rem;
+  padding: 0.7rem 0.7rem;
   border-radius: var(--borderRadius);
-  background: var(--grey-50);
   border: 1px solid var(--grey-200);
+  border-bottom: 1px solid black;
 }
 
 main {
