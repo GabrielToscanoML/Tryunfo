@@ -82,7 +82,7 @@ form {
   /* width: 100%; */
 }
 
-#card-main {
+#card-preview {
   display: flex;
   flex-direction: column;
   background: white;

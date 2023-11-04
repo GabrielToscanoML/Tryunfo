@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from './components/Card';
+import CardPreview from './components/CardPreview';
 import Form from './components/Form';
+import Card from './components/Card';
 
 class App extends React.Component {
   state = {
@@ -45,6 +46,8 @@ class App extends React.Component {
     const existsTrunfo = (element) => element.cardTrunfo === true;
     if (savedCards.some(existsTrunfo)) {
       this.setState({ hasTrunfo: true });
+    } else {
+      this.setState({ hasTrunfo: false });
     }
   };
 
@@ -67,15 +70,11 @@ class App extends React.Component {
     this.clearCard();
   };
 
-  removeCard = ({ target }) => {
-    const { cardName } = target;
+  removeCard = (name) => {
     const { savedCards } = this.state;
-    const index = savedCards.indexOf(cardName);
-    const min = -1;
-    if (index >= min) {
-      savedCards.splice(index, 1);
-      this.setState({ savedCards }, this.checkTrunfo);
-    }
+    this.setState({ savedCards: savedCards.filter(
+      (card) => card.cardName !== name,
+    ) }, this.checkTrunfo);
   };
 
   isValid() {
@@ -122,7 +121,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onSaveButtonClick={ this.onSaveButtonClick }
           />
-          <Card
+          <CardPreview
             cardName={ cardName }
             cardDescription={ cardDescription }
             cardAttr1={ cardAttr1 }
@@ -136,30 +135,22 @@ class App extends React.Component {
         <section id="savedCardsSection">
           {
             savedCards.map((element) => (
-              <div key={ savedCards } id="showCard">
-                <p>{ element.cardName }</p>
-                <img src={ element.cardImage } alt={ element.cardName } />
-                <p>{ element.cardDescription }</p>
-                <p>{ element.cardAttr1 }</p>
-                <p>{ element.cardAttr2 }</p>
-                <p>{ element.cardAttr3 }</p>
-                <p>{ element.cardRare }</p>
-                <button
-                  data-testid="delete-button"
-                  type="button"
-                  id="deleteItemButton"
-                  onClick={ this.removeCard }
-                  // onChange={ onInputChange }
-                >
-                  Excluir
-                </button>
+              <div key={ element.cardName }>
+                <Card
+                  cardName={ element.cardName }
+                  cardDescription={ element.cardDescription }
+                  cardAttr1={ element.cardAttr1 }
+                  cardAttr2={ element.cardAttr2 }
+                  cardAttr3={ element.cardAttr3 }
+                  cardImage={ element.cardImage }
+                  cardRare={ element.cardRare }
+                  cardTrunfo={ element.cardTrunfo }
+                  removeCard={ () => this.removeCard(element.cardName) }
+                />
               </div>
             ))
           }
         </section>
-        {/* <div className="json">
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-        </div> */}
       </div>
     );
   }
