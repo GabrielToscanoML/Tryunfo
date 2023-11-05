@@ -2,6 +2,7 @@ import React from 'react';
 import CardPreview from './components/CardPreview';
 import Form from './components/Form';
 import Card from './components/Card';
+import imageDefault from './assets/1517059718128.jpeg';
 
 class App extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class App extends React.Component {
     cardAttr1: '0',
     cardAttr2: '0',
     cardAttr3: '0',
-    cardImage: '',
+    cardImage: imageDefault,
     cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
@@ -33,7 +34,7 @@ class App extends React.Component {
       cardAttr1: '0',
       cardAttr2: '0',
       cardAttr3: '0',
-      cardImage: '',
+      cardImage: imageDefault,
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
@@ -132,6 +133,7 @@ class App extends React.Component {
             cardTrunfo={ cardTrunfo }
           />
         </main>
+        {savedCards.length > 0 && <h1>Suas Cartas:</h1>}
         <section id="savedCardsSection">
           {
             savedCards.map((element) => (

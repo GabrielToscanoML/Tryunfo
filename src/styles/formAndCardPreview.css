@@ -1,11 +1,11 @@
-#card-preview {
+.formAndCardPreview {
   display: flex;
   flex-direction: column;
   background: white;
   border-radius: 0.25rem;
-  padding: 2rem 2.5rem;
-  height: 600px;
-  width: 30%;
-  border: 1px solid black;
+  padding: 2rem 2rem;
+  height: 650px;
+  width: 350px; 
+  border: 1px solid blue;
   color: black;
 }

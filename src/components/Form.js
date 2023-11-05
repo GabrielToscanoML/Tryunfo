@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import '../styles/form.css';
+import '../styles/formAndCardPreview.css';
 
 class Form extends React.Component {
   render() {
@@ -11,7 +11,7 @@ class Form extends React.Component {
       onInputChange, onSaveButtonClick, hasTrunfo } = this.props;
     return (
       <div>
-        <form>
+        <form className="formAndCardPreview">
           <label htmlFor="name">
             <input
               name="cardName"
@@ -36,6 +36,7 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo1">
+            Atributo 1:
             <input
               placeholder="Atributo 1"
               data-testid="attr1-input"
@@ -48,6 +49,7 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo2">
+            Atributo 2:
             <input
               placeholder="Atributo 2"
               data-testid="attr2-input"
@@ -60,6 +62,7 @@ class Form extends React.Component {
           </label>
 
           <label htmlFor="atributo3">
+            Atributo 3:
             <input
               data-testid="attr3-input"
               placeholder="Atributo 3"

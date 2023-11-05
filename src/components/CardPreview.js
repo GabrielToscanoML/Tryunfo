@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import '../styles/cardPreview.css';
+import '../styles/formAndCardPreview.css';
+import '../styles/card.css';
 
 class CardPreview extends React.Component {
   render() {
@@ -15,14 +16,40 @@ class CardPreview extends React.Component {
     };
 
     return (
-      <div id="card-preview">
-        <p data-testid="name-card">{ cardName }</p>
+      <div id="card-preview" className="formAndCardPreview card">
+        <p data-testid="name-card" id="card-name">{ cardName }</p>
         <img src={ cardImage } alt={ cardName } data-testid="image-card" />
-        <p name="cardDescription" data-testid="description-card">{ cardDescription }</p>
-        <p name="cardAttr1" data-testid="attr1-card">{ cardAttr1 }</p>
-        <p name="cardAttr2" data-testid="attr2-card">{ cardAttr2 }</p>
-        <p name="cardAttr3" data-testid="attr3-card">{ cardAttr3 }</p>
-        <p name="cardRare" data-testid="rare-card">{ cardRare }</p>
+        <p
+          name="cardDescription"
+          data-testid="description-card"
+          id="description"
+        >
+          { cardDescription }
+
+        </p>
+        <p name="cardAttr1" data-testid="attr1-card">
+          Atributo:
+          {' '}
+          { cardAttr1 }
+        </p>
+        <p name="cardAttr2" data-testid="attr2-card">
+          Atributo:
+          {' '}
+          {' '}
+          { cardAttr2 }
+        </p>
+        <p name="cardAttr3" data-testid="attr3-card">
+          Atributo:
+          {' '}
+          {' '}
+          { cardAttr3 }
+        </p>
+        <p name="cardRare" data-testid="rare-card">
+          Raridade:
+          {' '}
+          {' '}
+          { cardRare }
+        </p>
         { cardTrunfoIsTrue() }
       </div>
     );
